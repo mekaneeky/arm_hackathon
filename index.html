@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARM Distributed AI Hackathon</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
+    
+    :root {
+      --neon-pink: #ff00ff;
+      --neon-blue: #00ffff;
+      --dark-purple: #1a0b2e;
+      --light-purple: #8a2be2;
+      --grid-color: rgba(116, 0, 184, 0.5);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: var(--dark-purple);
+      color: white;
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(to bottom, #420080, #1a0b2e);
+    }
+    
+    .hero::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 70%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%231a0b2e" fill-opacity="0.4" d="M0,224L60,229.3C120,235,240,245,360,234.7C480,224,600,192,720,197.3C840,203,960,245,1080,250.7C1200,256,1320,224,1380,208L1440,192L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>');
+      background-size: cover;
+      z-index: 1;
+    }
+    
+    .hero-cityscape {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30%;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><rect x="10" y="80" width="30" height="120" fill="%23340858"/><rect x="50" y="100" width="40" height="100" fill="%23340858"/><rect x="100" y="40" width="20" height="160" fill="%23340858"/><rect x="130" y="70" width="50" height="130" fill="%23340858"/><rect x="190" y="60" width="30" height="140" fill="%23340858"/><rect x="230" y="90" width="40" height="110" fill="%23340858"/><rect x="280" y="20" width="25" height="180" fill="%23340858"/><rect x="315" y="50" width="35" height="150" fill="%23340858"/><rect x="360" y="30" width="20" height="170" fill="%23340858"/><rect x="390" y="70" width="60" height="130" fill="%23340858"/><rect x="460" y="10" width="30" height="190" fill="%23340858"/><rect x="500" y="60" width="45" height="140" fill="%23340858"/><rect x="555" y="40" width="25" height="160" fill="%23340858"/><rect x="590" y="70" width="40" height="130" fill="%23340858"/><rect x="640" y="50" width="20" height="150" fill="%23340858"/><rect x="670" y="90" width="50" height="110" fill="%23340858"/><rect x="730" y="30" width="35" height="170" fill="%23340858"/><rect x="775" y="80" width="30" height="120" fill="%23340858"/><rect x="815" y="20" width="25" height="180" fill="%23340858"/><rect x="850" y="60" width="40" height="140" fill="%23340858"/><rect x="900" y="40" width="20" height="160" fill="%23340858"/><rect x="930" y="90" width="50" height="110" fill="%23340858"/><rect x="990" y="70" width="30" height="130" fill="%23340858"/><rect x="1030" y="50" width="45" height="150" fill="%23340858"/><rect x="1085" y="10" width="20" height="190" fill="%23340858"/><rect x="1115" y="80" width="35" height="120" fill="%23340858"/><rect x="1160" y="40" width="30" height="160" fill="%23340858"/></svg>');
+      background-repeat: repeat-x;
+      z-index: 2;
+    }
+    
+    .grid-floor {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 30vh;
+      background-image: linear-gradient(0deg, rgba(124, 0, 255, 0.2) 1px, transparent 1px), 
+                        linear-gradient(90deg, rgba(124, 0, 255, 0.2) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0;
+      transform: perspective(500px) rotateX(60deg);
+      transform-origin: bottom;
+      z-index: 1;
+    }
+    
+    .sun {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: linear-gradient(to right, var(--neon-pink), var(--neon-blue));
+      top: 10%;
+      opacity: 0.3;
+      box-shadow: 0 0 100px 50px rgba(255, 0, 255, 0.5);
+      z-index: 0;
+    }
+    
+    h1, h2, h3, h4 {
+      font-family: 'Orbitron', sans-serif;
+      text-transform: uppercase;
+    }
+    
+    .hero-content {
+      position: relative;
+      z-index: 10;
+      max-width: 800px;
+    }
+    
+    .hackathon-title {
+      font-size: 4rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink);
+      letter-spacing: 2px;
+    }
+    
+    .hackathon-subtitle {
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+      text-shadow: 0 0 5px var(--neon-blue), 0 0 10px var(--neon-blue);
+      color: #ccc;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2rem;
+      margin-top: 2rem;
+      background: linear-gradient(90deg, var(--neon-pink), var(--neon-blue));
+      color: white;
+      border: none;
+      border-radius: 50px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 2px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 15px var(--neon-pink), 0 0 30px var(--neon-blue);
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px var(--neon-pink), 0 0 40px var(--neon-blue);
+    }
+    
+    .cta-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: left 0.7s ease;
+    }
+    
+    .cta-button:hover::before {
+      left: 100%;
+    }
+    
+    /* Content Sections */
+    section {
+      padding: 5rem 0;
+      position: relative;
+    }
+    
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+      font-size: 2.5rem;
+      color: white;
+      text-shadow: 0 0 10px var(--neon-blue);
+    }
+    
+    .tracks {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+    }
+    
+    .track-card {
+      flex: 1;
+      min-width: 300px;
+      background: rgba(26, 11, 46, 0.7);
+      border: 1px solid var(--neon-blue);
+      border-radius: 10px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+    
+    .track-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+    
+    .track-card h3 {
+      color: var(--neon-pink);
+      margin-bottom: 1rem;
+      font-size: 1.5rem;
+    }
+    
+    .criteria-list, .resources-list {
+      list-style-type: none;
+      padding-left: 1rem;
+    }
+    
+    .criteria-list li, .resources-list li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .criteria-list li::before, .resources-list li::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--neon-pink);
+      font-weight: bold;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: rgba(10, 5, 20, 0.8);
+      padding: 2rem 0;
+      text-align: center;
+      position: relative;
+    }
+    
+    .footer-content {
+      position: relative;
+      z-index: 10;
+    }
+    
+    .footer-content p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+    
+    /* Media Queries */
+    @media (max-width: 768px) {
+      .hackathon-title {
+        font-size: 2.5rem;
+      }
+      
+      .hackathon-subtitle {
+        font-size: 1.2rem;
+      }
+      
+      .track-card {
+        min-width: 100%;
+      }
+    }
+    
+    /* Animation */
+    @keyframes flicker {
+      0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100% {
+        opacity: 1;
+      }
+      20%, 21.999%, 63%, 63.999%, 65%, 69.999% {
+        opacity: 0.8;
+      }
+    }
+    
+    .flicker {
+      animation: flicker 5s infinite alternate;
+    }
+  </style>
+</head>
+<body>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="sun"></div>
+    <div class="grid-floor"></div>
+    <div class="hero-cityscape"></div>
+    
+    <div class="hero-content">
+      <h1 class="hackathon-title flicker">ARM × Hivetensor<span style="color: var(--neon-blue)">AI</span></h1>
+      <h2 class="hackathon-subtitle">Distributed Intelligence Hackathon</h2>
+      <p>Building the Future of AI on ARM Architecture</p>
+      <a href="https://forms.gle/S1zmcAjL59vhGj898" class="cta-button">Register Now</a>
+    </div>
+  </section>
+  
+  <!-- Overview Section -->
+  <section id="overview">
+    <div class="container">
+      <h2 class="section-title">Challenge Overview</h2>
+      <p>Design and develop distributed AI solutions that leverage the power, efficiency, and scalability of ARM architecture. Your projects should demonstrate innovative approaches to distributed AI inference or training while optimizing for ARM compatibility.</p>
+    </div>
+  </section>
+  
+  <!-- Tracks Section -->
+  <section id="tracks" style="background: linear-gradient(to bottom, #1a0b2e, #420080, #1a0b2e);">
+    <div class="container">
+      <h2 class="section-title">Tracks</h2>
+      <div class="tracks">
+        <div class="track-card">
+          <h3>Edge-Cloud Collaboration</h3>
+          <p>Build systems that intelligently distribute AI workloads between edge devices and cloud resources, demonstrating how ARM architecture can enable more effective hybrid deployments for real-world applications.</p>
+        </div>
+        
+        <div class="track-card">
+          <h3>Distributed Training Swarms</h3>
+          <p>Develop approaches for coordinating AI model training across multiple devices or nodes, focusing on communication efficiency, workload balancing, and scaling techniques optimized for ARM processors.</p>
+        </div>
+        
+        <div class="track-card">
+          <h3>Inference on Edge Devices</h3>
+          <p>Create solutions that enable efficient AI inference on resource-constrained edge devices, emphasizing model compression, quantization, or innovative deployment strategies for ARM-based hardware.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Criteria Section -->
+  <section id="criteria">
+    <div class="container">
+      <h2 class="section-title">Judging Criteria</h2>
+      <ul class="criteria-list">
+        <li><strong>Technical Innovation (30%)</strong>: Originality and creativity of the approach</li>
+        <li><strong>Implementation Quality (25%)</strong>: Code quality, documentation, and reproducibility</li>
+        <li><strong>ARM Compatibility (25%)</strong>: How well the solution leverages ARM architecture's strengths</li>
+        <li><strong>Performance Metrics (15%)</strong>: Measurable improvements in speed, efficiency, or other relevant metrics</li>
+        <li><strong>Presentation (5%)</strong>: Clear explanation of the solution and its potential impact</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Resources Section -->
+  <section id="resources" style="background: linear-gradient(to bottom, #1a0b2e, #420080);">
+    <div class="container">
+      <h2 class="section-title">Resources Provided</h2>
+      <ul class="resources-list">
+        <li>Documentation on ARM architecture and optimization techniques</li>
+        <li>Access to ARM Graviton instances on AWS for testing</li>
+        <li>Baseline models and datasets for benchmarking</li>
+      </ul>
+      <div style="text-align: center; margin-top: 3rem;">
+        <a href="https://forms.gle/S1zmcAjL59vhGj898" class="cta-button">Join the Challenge</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <p>Contact: <a href="mailto:info@hivetensor.com" style="color: var(--neon-blue);">info@hivetensor.com</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple parallax effect for the grid floor
+    window.addEventListener('scroll', function() {
+      const scrollY = window.scrollY;
+      document.querySelector('.grid-floor').style.transform = 
+        `perspective(500px) rotateX(60deg) translateY(${scrollY * 0.1}px)`;
+    });
+    
+    // Random flicker effect for certain elements
+    function randomFlicker() {
+      const flickerElements = document.querySelectorAll('.flicker');
+      flickerElements.forEach(element => {
+        if (Math.random() > 0.95) {
+          element.style.opacity = Math.random() * 0.5 + 0.5;
+          setTimeout(() => {
+            element.style.opacity = 1;
+          }, 100);
+        }
+      });
+      requestAnimationFrame(randomFlicker);
+    }
+    
+    randomFlicker();
+  </script>
+</body>
+</html>
