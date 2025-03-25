@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ARM Distributed AI Hackathon</title>
+  <title>ARM × Hivetensor Distributed AI Hackathon</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400&display=swap');
     
@@ -123,6 +123,13 @@
       color: #ccc;
     }
     
+    .hackathon-dates {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-shadow: 0 0 5px var(--neon-pink);
+    }
+    
     .cta-button {
       display: inline-block;
       padding: 1rem 2rem;
@@ -225,6 +232,49 @@
       font-weight: bold;
     }
     
+    /* Sponsors Section */
+    .sponsors {
+      padding-top: 2rem;
+      text-align: center;
+    }
+    
+    .sponsor-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 3rem;
+      margin-top: 2rem;
+    }
+    
+    .sponsor-tier {
+      padding: 1rem;
+    }
+    
+    .sponsor-tier h3 {
+      color: var(--neon-blue);
+      margin-bottom: 1.5rem;
+    }
+    
+    .sponsor-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+    }
+    
+    .sponsor-placeholder {
+      width: 200px;
+      height: 100px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-pink);
+      border: 1px dashed var(--neon-pink);
+    }
+    
     /* Footer */
     footer {
       background-color: rgba(10, 5, 20, 0.8);
@@ -284,7 +334,8 @@
     <div class="hero-content">
       <h1 class="hackathon-title flicker">ARM × Hivetensor<span style="color: var(--neon-blue)">AI</span></h1>
       <h2 class="hackathon-subtitle">Distributed Intelligence Hackathon</h2>
-      <p>Building the Future of AI on ARM Architecture</p>
+      <p class="hackathon-dates">April 26, 2025 | Online & Nairobi, Kenya</p>
+      <p>Join us in revolutionizing distributed AI systems on ARM architecture. Collaborate with experts, build groundbreaking solutions, and compete for cash prizes.</p>
       <a href="https://forms.gle/S1zmcAjL59vhGj898" class="cta-button">Register Now</a>
     </div>
   </section>
@@ -292,8 +343,10 @@
   <!-- Overview Section -->
   <section id="overview">
     <div class="container">
-      <h2 class="section-title">Challenge Overview</h2>
+      <h2 class="section-title">Hackathon Overview</h2>
+      <p>The ARM × Hivetensor Distributed Intelligence Hackathon brings together developers, AI researchers, and innovators to tackle the challenges of distributed AI on ARM architecture. This event focuses on creating scalable, efficient solutions that harness the unique capabilities of ARM processors for next-generation AI applications.</p>
       <p>Design and develop distributed AI solutions that leverage the power, efficiency, and scalability of ARM architecture. Your projects should demonstrate innovative approaches to distributed AI inference or training while optimizing for ARM compatibility.</p>
+      <p>Whether you're interested in edge computing, swarm intelligence, or cloud-ARM integration, this hackathon offers a platform to showcase your skills and push the boundaries of what's possible with distributed AI systems.</p>
     </div>
   </section>
   
@@ -342,6 +395,8 @@
         <li>Documentation on ARM architecture and optimization techniques</li>
         <li>Access to ARM Graviton instances on AWS for testing</li>
         <li>Baseline models and datasets for benchmarking</li>
+        <li>Technical mentors specialized in distributed systems and ARM development</li>
+        <li>Virtual workshops and office hours during the hackathon period</li>
       </ul>
       <div style="text-align: center; margin-top: 3rem;">
         <a href="https://forms.gle/S1zmcAjL59vhGj898" class="cta-button">Join the Challenge</a>
@@ -349,10 +404,54 @@
     </div>
   </section>
   
+  <!-- Sponsors Section -->
+  <!-- <section id="sponsors">
+    <div class="container">
+      <h2 class="section-title">Our Sponsors</h2>
+      <p>This hackathon is made possible through the generous support of our sponsors.</p>
+      
+      <div class="sponsors">
+        <div class="sponsor-tiers">
+          <div class="sponsor-tier">
+            <h3>Platinum Sponsors</h3>
+            <div class="sponsor-logos">
+              <div class="sponsor-placeholder">Your Logo Here</div>
+              <div class="sponsor-placeholder">Your Logo Here</div>
+            </div>
+          </div>
+          
+          <div class="sponsor-tier">
+            <h3>Gold Sponsors</h3>
+            <div class="sponsor-logos">
+              <div class="sponsor-placeholder">Your Logo Here</div>
+              <div class="sponsor-placeholder">Your Logo Here</div>
+              <div class="sponsor-placeholder">Your Logo Here</div>
+            </div>
+          </div>
+          
+          <div class="sponsor-tier">
+            <h3>Silver Sponsors</h3>
+            <div class="sponsor-logos">
+              <div class="sponsor-placeholder">Your Logo Here</div>
+              <div class="sponsor-placeholder">Your Logo Here</div>
+            </div>
+          </div>
+        </div>
+        
+        <div style="margin-top: 3rem;">
+          <h3>Interested in Sponsoring?</h3>
+          <p>Contact us to learn about our sponsorship packages and how your organization can support innovation in distributed AI.</p>
+          <a href="mailto:sponsors@hivetensor.com" class="cta-button" style="margin-top: 1rem;">Become a Sponsor</a>
+        </div>
+      </div>
+    </div>
+  </section> -->
+  
   <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-content">
+        <p>© 2025 ARM × Hivetensor Distributed Intelligence Hackathon</p>
         <p>Contact: <a href="mailto:info@hivetensor.com" style="color: var(--neon-blue);">info@hivetensor.com</a></p>
       </div>
     </div>
