@@ -275,6 +275,72 @@
       border: 1px dashed var(--neon-pink);
     }
     
+    /* Sponsorship Tiers */
+    .sponsorship-tier {
+      background: rgba(26, 11, 46, 0.7);
+      border: 1px solid var(--neon-blue);
+      border-radius: 10px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+    }
+    
+    .sponsorship-tier:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
+    }
+    
+    .tier-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--neon-pink);
+      padding-bottom: 0.5rem;
+    }
+    
+    .tier-header h3 {
+      color: var(--neon-pink);
+      font-size: 1.8rem;
+      margin: 0;
+    }
+    
+    .tier-price {
+      font-family: 'Orbitron', sans-serif;
+      color: var(--neon-blue);
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    
+    .tier-benefits {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .tier-benefits li {
+      margin-bottom: 0.8rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    
+    .tier-benefits li::before {
+      content: "⚡";
+      position: absolute;
+      left: 0;
+      color: var(--neon-pink);
+    }
+    
+    .custom-options {
+      margin-top: 1.5rem;
+    }
+    
+    .custom-options h4 {
+      color: var(--neon-blue);
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+    }
+    
     /* Footer */
     footer {
       background-color: rgba(10, 5, 20, 0.8);
@@ -405,7 +471,7 @@
   </section>
   
   <!-- Sponsors Section -->
-  <!-- <section id="sponsors">
+  <section id="sponsors">
     <div class="container">
       <h2 class="section-title">Our Sponsors</h2>
       <p>This hackathon is made possible through the generous support of our sponsors.</p>
@@ -437,15 +503,86 @@
             </div>
           </div>
         </div>
+      </div>
+      
+      <!-- Sponsorship Tiers Information -->
+      <div style="margin-top: 4rem;">
+        <h2 class="section-title">Sponsorship Opportunities</h2>
+        <p style="text-align: center; margin-bottom: 2rem;">Support innovation in distributed AI by becoming a sponsor of the ARM × Hivetensor Hackathon.</p>
         
-        <div style="margin-top: 3rem;">
+        <div class="sponsorship-tier">
+          <div class="tier-header">
+            <h3>Platinum Sponsor</h3>
+            <span class="tier-price">$3,000</span>
+          </div>
+          <ul class="tier-benefits">
+            <li>Primary logo placement on all event materials (banners, website, stage)</li>
+            <li>Opportunity to give a talk (10 minutes)</li>
+            <li>Dedicated mentors from your organization (featured in event schedule)</li>
+            <li>Ability to propose a special prize category (e.g., "Best Use of AI")</li>
+            <li>Exclusive recruitment booth during the event</li>
+            <li>Access to participant resumes/portfolios (with consent)</li>
+            <li>Social media recognition (5 dedicated posts pre/post-event)</li>
+            <li>Logo on event t-shirts and promotional merchandise</li>
+            <li>10 complimentary tickets for your team</li>
+          </ul>
+        </div>
+        
+        <div class="sponsorship-tier">
+          <div class="tier-header">
+            <h3>Gold Sponsor</h3>
+            <span class="tier-price">$1,500</span>
+          </div>
+          <ul class="tier-benefits">
+            <li>Prominent logo placement on event materials (secondary to Platinum)</li>
+            <li>Lightning talk opportunity (5 minutes during breaks)</li>
+            <li>Technical mentors from your organization (listed in program)</li>
+            <li>Social media recognition (3 dedicated posts)</li>
+            <li>Logo on event t-shirts</li>
+            <li>5 complimentary tickets for your team</li>
+          </ul>
+        </div>
+        
+        <div class="sponsorship-tier">
+          <div class="tier-header">
+            <h3>Silver Sponsor</h3>
+            <span class="tier-price">$750</span>
+          </div>
+          <ul class="tier-benefits">
+            <li>Logo placement on event website and materials</li>
+            <li>Opportunity to provide technical mentors (shared visibility)</li>
+            <li>Social media recognition (1 dedicated post)</li>
+            <li>3 complimentary tickets for your team</li>
+          </ul>
+        </div>
+        
+        <div class="sponsorship-tier">
+          <div class="tier-header">
+            <h3>Custom Sponsorship</h3>
+            <span class="tier-price">Flexible</span>
+          </div>
+          <p>We're open to tailored partnerships that align with your organization's goals and values.</p>
+          
+          <div class="custom-options">
+            <h4>Custom Options Include:</h4>
+            <ul class="tier-benefits">
+              <li>Sponsored challenges/prizes (e.g., "$1,000 Sustainability Hack Award")</li>
+              <li>Technical resources (cloud credits, API access, hardware loans)</li>
+              <li>Venue sponsorship (branding at our Nairobi venue)</li>
+              <li>Catering sponsorship (e.g., "Lunch powered by [Your Brand]")</li>
+              <li>Swag items (branded notebooks, stickers, or tech gadgets)</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 3rem;">
           <h3>Interested in Sponsoring?</h3>
           <p>Contact us to learn about our sponsorship packages and how your organization can support innovation in distributed AI.</p>
-          <a href="mailto:sponsors@hivetensor.com" class="cta-button" style="margin-top: 1rem;">Become a Sponsor</a>
+          <a href="https://forms.gle/t89WoQoEyVZDhuRx9" class="cta-button" style="margin-top: 1rem;">Become a Sponsor</a>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
   
   <!-- Footer -->
   <footer>
